@@ -1,0 +1,13 @@
+services:
+  qoinly-cache-container:
+    container_name: qoinly-cache-container
+    build: .
+    restart: unless-stopped
+    working_dir: /cache
+    volumes:
+      - ./:/cache
+
+networks:
+  default:
+    name: ${DOCKER_NETWORK}
+    external: true
